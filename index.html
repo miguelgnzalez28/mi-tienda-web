@@ -1,86 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Tienda Online</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Kits - El Futuro del Deporte</title>
+  
+  <!-- Google Fonts - Tipografías Correctas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Mont:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Fuentes personalizadas -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Mont:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    
+    /* Heading Now - Títulos principales (usando Bebas Neue) */
+    @font-face {
+      font-family: 'Heading Now';
+      src: url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&display=swap');
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    /* Kleptocracy Expanded - Subtítulos (usando Mont con peso 700) */
+    @font-face {
+      font-family: 'Kleptocracy Expanded';
+      src: url('https://fonts.googleapis.com/css2?family=Mont:wght@700&display=swap');
+      font-weight: 700;
+      font-style: normal;
+    }
+    
+    /* Mont - Párrafos y textos largos */
+    @font-face {
+      font-family: 'Mont';
+      src: url('https://fonts.googleapis.com/css2?family=Mont:wght@400;500;600&display=swap');
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    /* Aplicar tipografías globalmente */
+    * {
+      font-family: 'Mont', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Heading Now', 'Bebas Neue', sans-serif;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+    
+    .subtitle, .font-subtitle {
+      font-family: 'Kleptocracy Expanded', 'Mont', sans-serif;
+      font-weight: 700;
+    }
+    
+    .body, .font-body, p, span, div {
+      font-family: 'Mont', sans-serif;
+      font-weight: 400;
+    }
+  </style>
+  
+  <script>
+    window.APPSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXqp-YHzqnAfD12gkudViIpKB3ULVcMW3NyNpIINZK7gQE3YCHnnCpw4YksDrydxxU/exec';
+  </script>
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#colecciones">COLECCIONES</a></li>
-        <li><a href="#topventas">TOP VENTAS</a></li>
-        <li><a href="#faq">PREGUNTAS FRECUENTES</a></li>
-        <li><a href="#carrito">CARRITO</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-
-  <!-- SECCIÓN TOP VENTAS -->
-  <section id="topventas">
-    <h1>Nuestro Top Ventas</h1>
-    <div class="grid" id="contenedor-articulos">
-      <!-- Aquí se cargan los productos dinámicamente -->
-    </div>
-  </section>
-
-  <!-- SECCIÓN FAQ -->
-  <section id="faq">
-    <h2>Preguntas Frecuentes</h2>
-    <p class="faq-text">
-      Aquí puedes poner las preguntas y respuestas más comunes sobre tus productos, envíos y devoluciones.
-    </p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Mi Tienda. Todos los derechos reservados.</p>
-  </footer>
-
-  <script>
-    const URL = 'https://script.google.com/macros/s/AKfycbxXqp-YHzqnAfD12gkudViIpKB3ULVcMW3NyNpIINZK7gQE3YCHnnCpw4YksDrydxxU/exec'; // tu WebApp URL
-
-    fetch(URL)
-      .then(res => res.json())
-      .then(articulos => {
-        const contenedor = document.getElementById('contenedor-articulos');
-
-        articulos.forEach(articulo => {
-          const card = document.createElement('div');
-          card.className = 'card';
-
-          const img = document.createElement('img');
-          img.src = articulo.images[0] || 'https://via.placeholder.com/300x200?text=Sin+Imagen';
-
-          const titulo = document.createElement('h3');
-          titulo.textContent = articulo.title;
-
-          const precio = document.createElement('div');
-          precio.className = 'precio';
-          precio.textContent = "$30"; // ajusta si luego lees precios de los .txt en Drive
-
-          const boton = document.createElement('a');
-          boton.className = 'btn';
-          boton.href = "#carrito";
-          boton.textContent = "Agregar al carrito";
-
-          card.appendChild(img);
-          card.appendChild(titulo);
-          card.appendChild(precio);
-          card.appendChild(boton);
-
-          contenedor.appendChild(card);
-        });
-      })
-      .catch(err => {
-        console.error('Error al cargar artículos:', err);
-        document.getElementById('contenedor-articulos').textContent = 'Error al cargar los artículos.';
-      });
-  </script>
-
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
