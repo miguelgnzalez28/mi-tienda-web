@@ -6,7 +6,6 @@ import ProductDetail from './components/ProductDetail'
 import FAQ from './components/FAQ'
 import Cart from './components/Cart'
 import Footer from './components/Footer'
-import ImageTest from './components/ImageTest'
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null)
@@ -81,8 +80,6 @@ function App() {
         onUpdateQuantity={handleUpdateQuantity}
       />
       
-      {/* Componente de prueba temporal */}
-      <ImageTest />
     </div>
   )
 }

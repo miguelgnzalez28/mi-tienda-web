@@ -21,7 +21,7 @@ function FAQ() {
   ]
 
   return (
-    <section className="py-16 bg-light-gray-100">
+    <section id="faq" className="py-16 bg-light-gray-100">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl font-heading text-center mb-12 text-deep-black-900">
           Preguntas Frecuentes

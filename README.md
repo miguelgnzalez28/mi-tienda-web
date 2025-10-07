@@ -65,3 +65,35 @@ La aplicación es completamente responsive y se adapta a:
 - ✅ Carrito de compras (estado local)
 - ✅ Navegación fluida
 - ✅ Diseño moderno y deportivo
+
+## 🧭 Manual rápido (Windows/PowerShell)
+
+Sigue estos pasos para encender y probar el proyecto rápidamente.
+
+1) Instalar dependencias (primera vez):
+```powershell
+npm install
+```
+
+2) Ejecutar en modo desarrollo:
+```powershell
+npm run dev
+```
+Luego abre `http://localhost:3000` en tu navegador (se abrirá automáticamente si es posible).
+
+3) Generar versión de producción (build):
+```powershell
+npm run build
+```
+Los archivos optimizados quedarán en la carpeta `dist/`.
+
+4) Previsualizar el build localmente:
+```powershell
+npm run preview
+```
+Luego abre `http://localhost:4173` (la consola mostrará la URL exacta).
+
+Comandos útiles:
+- `npm run dev`: inicia el servidor de desarrollo (Vite) en `http://localhost:3000`.
+- `npm run build`: crea el build de producción en `dist/`.
+- `npm run preview`: sirve el contenido de `dist/` para pruebas locales.

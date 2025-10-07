@@ -78,7 +78,7 @@
 
   /* Contenedor enmascarado con la figura TARJETA-mask.svg */
   .card-mask {
-    background-color: #111; /* fallback para ver la forma si no carga imagen */
+    background-color: #f0f0f0; /* fallback para ver la forma si no carga imagen */
     -webkit-mask-image: url('/TARJETA-mask.svg');
     mask-image: url('/TARJETA-mask.svg');
     -webkit-mask-size: contain;
@@ -93,6 +93,31 @@
     width: 100%;
     aspect-ratio: 355 / 568;
     display: block;
+    position: relative;
+    overflow: hidden;
+    min-height: 450px; /* Increased from 300px */
+    max-width: 320px; /* Set maximum width for better control */
+    margin: 0 auto; /* Center the card */
+  }
+
+  /* Asegurar que la imagen de fondo se muestre correctamente */
+  .card-mask::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+
+  /* Enhanced hover effects for card mask */
+  .card-mask:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
   }
 
   /* Clases de texto con Inter */
@@ -191,6 +216,35 @@
     }
   }
 
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(5deg);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes slide-up-down {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
   @keyframes glow {
     0%, 100% {
       box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
@@ -218,6 +272,18 @@
 
   .animate-float {
     animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 4s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2.5s ease-in-out infinite;
+  }
+
+  .animate-slide-up-down {
+    animation: slide-up-down 3.5s ease-in-out infinite;
   }
 
   .animate-glow {

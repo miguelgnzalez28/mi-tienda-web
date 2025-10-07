@@ -57,8 +57,20 @@ const ProductDetail = ({ product, onAddToCart, onClose }) => {
           {/* Imagen y precio */}
           <div className="flex flex-col md:flex-row gap-8 mb-8">
             <div className="flex-1">
-              <div className="w-full h-64 bg-gradient-to-r from-bright-blue-500/20 to-medium-green-600/20 rounded-xl flex items-center justify-center">
-                <span className="text-6xl">⚽</span>
+              <div className="w-full h-64 rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    console.log('Error cargando imagen en modal:', product.name)
+                    e.target.style.display = 'none'
+                    e.target.nextElementSibling.style.display = 'flex'
+                  }}
+                />
+                <div className="w-full h-full bg-gradient-to-r from-bright-blue-500/20 to-medium-green-600/20 rounded-xl flex items-center justify-center" style={{display: 'none'}}>
+                  <span className="text-6xl">⚽</span>
+                </div>
               </div>
             </div>
             <div className="flex-1">
